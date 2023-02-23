@@ -40,7 +40,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM usuarios WHERE email = ?')) 
             }
             echo 'Bienvenido ' . $email . '!';
             $web=$_SERVER['SERVER_NAME'];
-            header( "refresh:1; url=http://$web:80" ); 
+            header( "refresh:1; url=http://$web:5000" ); 
 
         } else {
             // Incorrect password
