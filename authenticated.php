@@ -11,8 +11,8 @@ if ( mysqli_connect_errno() ) {
 // Now we check if the data from the login form was submitted, isset() will check if the data exists.
 if ( !isset($_POST['email'], $_POST['password']) ) {
 	// Could not get the data that should have been sent.
-    header( "Refresh:5; url=http://127.0.0.1/index.php", true, 303);
-    exit('No me intentes hackear!');
+    header( "Refresh:5; url=https://google.com", true, 303);
+    exit('Acceso denegado');
 
 }
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
