@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include ('config.php');
 // Change this to your connection info.
 $con=$conn;
@@ -12,9 +11,7 @@ if ( mysqli_connect_errno() ) {
 if ( !isset($_POST['email'], $_POST['password']) ) {
 	// Could not get the data that should have been sent.
     header( "Refresh:5; url=https://google.com", true, 303);
-    exit('Acceso denegado');
-
-}
+    exit('Acceso denegado');}
 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
 if ($stmt = $con->prepare('SELECT id, password FROM usuarios WHERE email = ?')) {
 	// Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
@@ -26,8 +23,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM usuarios WHERE email = ?')) 
         $stmt->bind_result($id, $password);
         $stmt->fetch();
         // Account exists, now we verify the password.
-        // Note: remember to use password_hash in your registration file to store the hashed passwords.
-        
+        // Note: remember to use password_hash in your registration file to store the hashed passwords.  
         $email=mysqli_real_escape_string($con,$_POST['email']);
         $jamon=mysqli_real_escape_string($con,$_POST['password']);
         if (password_verify($jamon, $password)) {
@@ -44,13 +40,12 @@ if ($stmt = $con->prepare('SELECT id, password FROM usuarios WHERE email = ?')) 
             }
             echo 'Bienvenido ' . $email . '!';
             $web=$_SERVER['SERVER_NAME'];
-            header( "refresh:5; url=http://$web:80" ); 
+            header( "refresh:1; url=http://$web:80" ); 
 
         } else {
             // Incorrect password
-            echo 'Usuario o contraseña incorrecto!';
             $web=$_SERVER['SERVER_NAME'];
-            header( "refresh:5; url=http://$web:8080/index.php" ); 
+            header( "refresh:1; url=http://$web:8080/index.php" ); 
             
         }
     } else {
