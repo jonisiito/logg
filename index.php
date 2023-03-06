@@ -8,7 +8,7 @@ if (isset($_COOKIE['sesion'])) {
     $result = $conexion->query($sql);
     if ($result->num_rows > 0) {
         $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action="http://34.239.253.255/createcookie" method="post">';
+        echo '<form id="myForm" action="http://3.237.171.101/createcookie" method="post">';
         echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
         echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
     }
@@ -92,7 +92,7 @@ if (isset($_COOKIE['sesion'])) {
             $sql = "UPDATE registro SET sesion='$sesion' WHERE id='$id'";
             if ($conexion->query($sql) === TRUE) {
                 setcookie('sesion', $sesion, time() + 60 * 60 * 2);
-                echo '<form id="myForm" action="http://34.239.253.255/createcookie" method="post">';
+                echo '<form id="myForm" action="http://3.237.171.101/createcookie" method="post">';
                 echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
                 echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
             } else {
