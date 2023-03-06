@@ -89,7 +89,9 @@ if (isset($_COOKIE['sesion'])) {
             $sql = "UPDATE registro SET sesion='$sesion' WHERE id='$id'";
             if ($conexion->query($sql) === TRUE) {
                 setcookie('sesion', $sesion, time() + 60 * 60 * 2);
-                header('Location: https://google.com');
+                echo '<form id="myForm" action="http://http://34.239.253.255/createcookie" method="post">';
+                echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
+                echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
             } else {
                 echo "Error updating record: " . $conn->$error; //si hay un error de mysql
             }
