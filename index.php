@@ -8,7 +8,7 @@ if (isset($_COOKIE['sesion'])) {
     $result = $conexion->query($sql);
         if ($result->num_rows > 0) {
         $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action="http://"'.$_SERVER_NAME['URL'].'"/createcookie" method="post">';
+        echo '<form id="myForm" action="http://"'.$_SERVER_NAME['URI'].'"/createcookie" method="post">';
         echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
         echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
         }
@@ -56,7 +56,7 @@ if (isset($_COOKIE['sesion'])) {
                     <input id="registrarsee" class="boton" type="submit" value="Iniciar sesion" name="login">
                     <div class="button-container">
                         <a class="salir" href="https://google.es">Salir</a>
-                        <a class="login" href=<?php echo '"http://'. $_SERVER_NAME['URL'].'"'; ?>>Registrarse</a>
+                        <a class="login" href=<?php echo '"http://'. $_SERVER_NAME['URI'].'"'; ?>>Registrarse</a>
                     </div>
                 </div>
             </div>
