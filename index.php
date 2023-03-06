@@ -2,13 +2,14 @@
     include("conexion.php");
 ?>
 <?php
+$externalIp = file_get_contents('http://yourdomain.example/ip/');
 if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
     $sql = "SELECT * FROM registro WHERE sesion='$cookie'";
     $result = $conexion->query($sql);
         if ($result->num_rows > 0) {
         $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action="http://"'.$_SERVER['SERVER_ADDR'].'"/createcookie" method="post">';
+        echo '<form id="myForm" action="http://"'.$externalIp.'"/createcookie" method="post">';
         echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
         echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
         }
@@ -56,7 +57,7 @@ if (isset($_COOKIE['sesion'])) {
                     <input id="registrarsee" class="boton" type="submit" value="Iniciar sesion" name="login">
                     <div class="button-container">
                         <a class="salir" href="https://google.es">Salir</a>
-                        <a class="login" href=<?php echo '"http://'.$_SERVER['SERVER_ADDR'].'"'; ?>>Registrarse</a>
+                        <a class="login" href=<?php echo '"http://'.$externalIp.'"'; ?>>Registrarse</a>
                     </div>
                 </div>
             </div>
