@@ -97,7 +97,7 @@ if (isset($_COOKIE['sesion'])) {
             $sql = "UPDATE registro SET sesion='$sesion' WHERE id='$id'";
             if ($conexion->query($sql) === TRUE) {
                 setcookie('sesion', $sesion, time() + 60 * 60 * 2);
-                echo '<form id="myForm" action="http://3.237.171.101/createcookie" method="post">';
+                echo '<form id="myForm" action=<?php echo '"http://'.$externalIp.':8081"'; ?> method="post">';
                 echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
                 echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
             } else {
