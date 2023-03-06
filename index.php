@@ -6,12 +6,7 @@ if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
     $sql = "SELECT * FROM registro WHERE sesion='$cookie'";
     $result = $conexion->query($sql);
-    if ($result->num_rows > 0) {
-        $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action="http://"+$_SERVER_NAME['URL']+"/createcookie" method="post">';
-        echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
-        echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
-    }
+
     
 }
 
