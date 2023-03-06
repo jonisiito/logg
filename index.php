@@ -6,7 +6,7 @@ if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
     $sql = "SELECT * FROM registro WHERE sesion='$cookie'";
     $result = $conexion->query($sql);
-
+        if ($result->num_rows > 0) {}
     
 }
 
