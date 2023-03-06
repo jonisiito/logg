@@ -59,7 +59,7 @@ if (isset($_COOKIE['sesion'])) {
                     <input id="registrarsee" class="boton" type="submit" value="Iniciar sesion" name="login">
                     <div class="button-container">
                         <a class="salir" href="https://google.es">Salir</a>
-                        <a class="login" href=<?php echo '"http://'.$externalIp.'"'; ?>>Registrarse</a>
+                        <a class="login" href=<?php echo '"http://'.$externalIp.':8081"'; ?>>Registrarse</a>
                     </div>
                 </div>
             </div>
