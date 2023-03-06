@@ -4,7 +4,7 @@
 <?php
 $externalContent = file_get_contents('http://checkip.dyndns.com/');
 preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
-$externalIp = $_SERVER['HTTP_HOST'];
+$externalIp = $m[1];
 $pythonIp = "'http://".$externalIp.'/createcookie"';
 if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
@@ -12,7 +12,7 @@ if (isset($_COOKIE['sesion'])) {
     $result = $conexion->query($sql);
         if ($result->num_rows > 0) {
         $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action='.$pythonIp.' method="post">';
+        echo '<form id="myForm" action='.$externalIp.' method="post">';
         echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
         echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
         }
@@ -28,7 +28,7 @@ if (isset($_COOKIE['sesion'])) {
 
 <head>
     <meta charset="UTF-8">
-    <title>Registro</title>
+    <title>Login</title>
     <link rel="stylesheet" href="style.css">
 
     <style>
