@@ -5,13 +5,14 @@
 $externalContent = file_get_contents('http://checkip.dyndns.com/');
 preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
 $externalIp = $m[1];
+$pythonIp = "'http://".$externalIp.'/createcookie"';
 if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
     $sql = "SELECT * FROM registro WHERE sesion='$cookie'";
     $result = $conexion->query($sql);
         if ($result->num_rows > 0) {
         $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action="http://"'.$externalIp.'"/createcookie" method="post">';
+        echo '<form id="myForm" action='.$pythonIp.' method="post">';
         echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
         echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
         }
