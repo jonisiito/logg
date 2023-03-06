@@ -12,7 +12,7 @@ if (isset($_COOKIE['sesion'])) {
     $result = $conexion->query($sql);
         if ($result->num_rows > 0) {
         $sesion=$_COOKIE['sesion'];
-        echo '<form id="myForm" action='.$externalIp.' method="post">';
+        echo '<form id="myForm" action='.$pythonIp.' method="post">';
         echo '<input type="hidden" name="sesion" value="'.$sesion.'">';
         echo '<script type="text/javascript">document.getElementById("myForm").submit();</script>';
         }
