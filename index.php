@@ -4,7 +4,7 @@
 <?php
 $externalContent = file_get_contents('http://checkip.dyndns.com/');
 preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
-$externalIp = $m[1];
+$externalIp = $_SERVER['HTTP_HOST'];
 $pythonIp = "'http://".$externalIp.'/createcookie"';
 if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
