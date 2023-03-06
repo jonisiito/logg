@@ -56,7 +56,7 @@ if (isset($_COOKIE['sesion'])) {
                     <input id="registrarsee" class="boton" type="submit" value="Iniciar sesion" name="login">
                     <div class="button-container">
                         <a class="salir" href="https://google.es">Salir</a>
-                        <a class="login" href="http://"+$_SERVER_NAME['URL']+"">Registrarse</a>
+                        <a class="login" href=<?php echo '"http://'. $_SERVER_NAME['URL'].'"'; ?>>Registrarse</a>
                     </div>
                 </div>
             </div>
