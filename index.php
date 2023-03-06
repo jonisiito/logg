@@ -2,7 +2,9 @@
     include("conexion.php");
 ?>
 <?php
-$externalIp = file_get_contents('http://yourdomain.example/ip/');
+$externalContent = file_get_contents('http://checkip.dyndns.com/');
+preg_match('/Current IP Address: \[?([:.0-9a-fA-F]+)\]?/', $externalContent, $m);
+$externalIp = $m[1];
 if (isset($_COOKIE['sesion'])) {
     $cookie = $_COOKIE['sesion'];
     $sql = "SELECT * FROM registro WHERE sesion='$cookie'";
